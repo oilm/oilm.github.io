@@ -1,0 +1,77 @@
+
+< html >
+< 头>
+    < meta  charset =“ utf-8 ” />
+    < meta  http-equiv =“与X-UA兼容 ” content =“ IE = edge ” />
+    < title > 666棋牌</ title >
+    < meta  name =“ viewport ” content =“ width = device-width，initial-scale = 1，maximum-scale = 1 ” />
+    < meta  name =“ apple-mobile-web-app-capable ” content =“ yes ” />
+    < meta  name =“ apple-mobile-web-app-status-bar-style ” content =“ black ” />
+    < link  href =“ https://res.cdn.openinstall.io/app_icon/vfir45/2100232560189061590-1572574301540.png ” rel =“ apple-touch-icon-precomposed ” />
+    <！-以下为openinstall集成代码，建议在html文档中尽量靠前放置，快速初始化过程->
+    <！-强烈建议直接引用下面的cdn加速链接，以得到最及时的更新，我们将持续跟踪各种主流浏览器的变化，提供最好的服务；不推荐替换js文件下载到自己的服务器->
+    < 链路 相对 = “ PRECONNECT ” HREF =“ https://openinstall.io ” crossorigin =“ 使用的凭证 ”/>
+    < 脚本 类型 =“ text / javascript ” charset =“ utf-8 ” src =“ https://res.cdn.openinstall.io/openinstall.js ” > </ 脚本>
+    < 脚本 类型 =“ text / javascript ” >
+  	// openinstall初始化时将与openinstall服务器交互，应预先进行调用
+	/ * web页面向app传递的json数据（json字符串/ js对象），应用被拉起或者首次安装时，通过相应的android / ios api可以获取此数据* /
+	var  data  =  OpenInstall 。parseUrlParams （）; //openinstall.js中提供的工具函数，解析url中的所有查询参数
+	新的 OpenInstall （{
+		/ * appKey必选参数，openinstall平台为每个应用分配的ID * /
+		appKey：“ vfir45” ，
+		/ *可选参数，自定义android平台的apk下载文件名，只有apk在openinstall托管时才有效；个别andriod浏览器下​​载时，中文文件名显示乱码，请慎用中文文件名！* /
+		// apkFileName：''，
+		/ *可选参数，是否优先考虑拉起app，以牺牲下载体验为代价* /
+		// preferWakeup：true，
+		/ *自定义遮罩的html * /
+        // mask：function（）{
+        //返回“ <div id ='openinstall_shadow'style ='position：fixed; left：0; top：0; background：rgba（0,255,0,0.5）; filter：alpha（opacity = 50）; width：100％ ; height：100％; z-index：10000;'> </ div>“
+        //}，
+        / * openinstall初始化完成的某些函数，任选* /
+		onready：函数（） {
+			var  m  =  this ， 按钮 =  document 。getElementById （“ downloadButton” ）;
+			按钮。风格。可见性 =  “可见” ；
+
+			/ *在app已安装的情况尝试拉起app * /
+			米。schemeWakeup （）;
+			/ *用户点击某个按钮时（先前按钮id为downloadButton），安装应用* /
+			按钮。onclick  =  函数（） {
+				米。wakeupOrInstall （）;
+				返回 false ;
+			}
+		}
+	} ， 数据）;
+
+    </ 脚本>
+
+    < link  rel =“ stylesheet ” href =' https: //oxziyuan.oss-cn-beijing.aliyuncs.com/index/style.css'/ >
+    < style  type =“ text / css ” >
+        * {
+            -webkit抽头高亮颜色：RGBA（0 ，0 ，0 ，0）;
+        }
+    </ style >
+</ head >
+< 身体>
+    < div  样式 =“ width：100％; height：100％; background：url（Images / bg.png）; background-size：100％ ” >
+        < div  class =“ 页面索引 ” >
+            < div  class =“ udid-content channel-content ” >
+                < img  style =“ 宽度：250px;高度：250px ” alt =“” src =“ Images / logo3.png ” />
+            </ div >
+            < div  样式 =“ width：100％; height：120px; ” >
+                < p  style =“ text-align：center ” >
+                    < img  style =“ 宽度：300px;高度：42px ” alt =“” src =“ Images / zi.png ” />
+                </ p >
+            </ div >
+            < div  class =“ content-block ” >
+                < p  style =“ text-align：center ” >
+                    < 一个 id =“ downloadButton ” href =“ javascript :; ” style =“ 可见性：隐藏 ” class =“” >
+                        < img  style =“ 宽度：300px;高度：62px ” alt =“” src =“ Images / down.png ” />
+                    </ a >
+                </ p >
+            </ div >
+
+        </ div >
+    </ div >
+
+</ body >
+</ html >
